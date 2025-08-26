@@ -1,7 +1,6 @@
 package com.nicolasmoraes.crud_usuarios.infrastructure.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Getter
@@ -12,4 +11,16 @@ import lombok.*;
 @Table(name = "usuario")
 @Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @Column(name = "email", unique = true)
+    private String email;
+
+    @Column(name = "nome")
+    private String name;
+
+
 }
